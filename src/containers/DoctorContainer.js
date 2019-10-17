@@ -4,7 +4,7 @@ import DoctorList from '../components/DoctorList'
 export default class DoctorContainer extends Component {
     render() {
         return (
-            <div>
+            <div className='doctor-container'>
                 <DoctorList />
             </div>
         )
