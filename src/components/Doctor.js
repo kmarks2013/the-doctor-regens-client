@@ -1,11 +1,12 @@
 import React from 'react'
 import logo from '../logo.svg';
 
-export default function Doctor() {
+export default function Doctor({doctor, nextDoctor}) {
+    console.log(doctor)
     return (
-        <div>
-            <h1>The Doctor</h1>
-            <img src={logo} alt="" />
+        <div onClick={nextDoctor}>
+            <h1>{doctor ?  doctor.name: null}</h1>
+            <img src={doctor ?  doctor.image: logo} alt="" />
         </div>
     )
 }
