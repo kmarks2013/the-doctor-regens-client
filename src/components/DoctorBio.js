@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function DoctorBio() {
+export default function DoctorBio({doctor}) {
     return (
         <div>
-            This will be the Doctors Bio or greatest accomplishments or something
+            <h4>{doctor ?  doctor.bio: null}</h4>
+            {/* <button onClick={doctor ?  doctor.wikilink: null}>More Info</button> */}
         </div>
     )
 }
