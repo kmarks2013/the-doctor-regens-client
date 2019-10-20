@@ -3,11 +3,19 @@ import Comment from './Comment'
 
 
 export default class CommentList extends Component {
+    
+    sendComments = () => {
+       return this.props.comments.map( (comment) => {
+            return <Comment comment={comment} key={`comment${comment.id}`}/>
+        })
+    }
+    
     render() {
         return (
             <div>
-                <Comment />
+            {this.sendComments()}
             </div>
         )
     }
 }
+ 

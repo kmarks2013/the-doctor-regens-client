@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function CommentForm({author, content, handleFormChange}) {
+export default function CommentForm({author, content, handleFormChange, handleSubmit}) {
     return (
         <div>
-            <form>
+            <form onSubmit={(event) => handleSubmit(event)}>
                 <label>Leave A Comment</label>
                 <br/>
                 <label>Author</label>
@@ -12,7 +12,7 @@ export default function CommentForm({author, content, handleFormChange}) {
                 <br/>
                 <textarea name='content' rows='4' cols='50' onChange={(event) => handleFormChange(event)} value={content}/>
                 <input type='submit'/>
-                </form>
+            </form>
         </div>
     )
 }
