@@ -3,7 +3,7 @@ import DoctorContainer from './containers/DoctorContainer'
 import CommentContainer from './containers/CommentContainer'
 import './App.css';
 
-const API = "http://localhost:3000/doctors"
+const API = "http://localhost:3000/doctors/"
 
 class App extends React.Component {
   state = {
@@ -12,9 +12,10 @@ class App extends React.Component {
     currentIndex: 0,
     comments: [],
     author: '',
-    content: ''
-  }
+    content: '',
+    editComment: {}
 
+  }
 
   componentDidMount() {
     console.log("I mounted!")
@@ -30,10 +31,28 @@ class App extends React.Component {
     })
   }
 
+  makeNewComment = (commentObj) =>{
+    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(commentObj)
+    })
+    .then(r => r.json())
+    .then(newComment => {
+      debugger
+      this.setState({
+        comments: [...this.state.comments, newComment]
+      })
+    })
+  }
+
 
   nextDoctor = () => {
     console.log('i have been clicked and i should update the state of the current index to show the next doctor')
-    // console.log(this.state.doctors.length)
+    console.log(this.state.doctors.length)
     let newIndex 
     if (this.state.currentIndex >= 1) {
       // index will eventually be 12 for the range 0-13
@@ -50,12 +69,7 @@ class App extends React.Component {
     // console.log(this.state.currentIndex)
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    let formData = {doctor:this.state.doctor, content: this.state.content, author: this.state.author}
-    console.log(formData)
-  }
-
+  
   handleFormChange = (event) => {
     console.log(event.target.value, event.target.name)
     this.setState({
@@ -63,12 +77,45 @@ class App extends React.Component {
     })
   }
 
+  makeNewComment = (commentObj) =>{
+    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(commentObj)
+    })
+    .then(r => r.json())
+    .then(newComment => {
+      debugger
+      this.setState({
+        comments: [...this.state.comments, newComment]
+      })
+    })
+  }
+  
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let formData = {doctor:this.state.doctor.id, content: this.state.content, author: this.state.author}
+    this.makeNewComment(formData)
+    this.setState({content: '', author: ''})
+    console.log(formData, this.state.comments)
+  }
+
+  editClick = (event, commentObj) => {
+    this.setState({
+      editComment: commentObj
+    })
+    console.log(`this should be the comment object ${commentObj}`, event.target, this.state.editComment)
+  }
+  
   render() {
-    // console.log(this.state.doctors)
+    console.log(this.state.currentIndex)
     return (
       <div className="App">
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor} />
-          <CommentContainer comments={this.state.comments} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit}/>
+          <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} editClick={this.editClick}/>
       </div>
     );
   }
