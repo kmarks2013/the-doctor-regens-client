@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Comment({comment}) {
+export default function Comment({comment , editClick}) {
     // console.log(comment)
     return (
         <div>
@@ -9,7 +9,7 @@ export default function Comment({comment}) {
             {/* <p>this should render the content</p> */}
             <p>{comment.content}</p>
             {/* <p> the comment should be realted to a specific doctor</p> */}
-            <button> Edit Comment </button>
+            <button onClick={(event) => editClick(event, comment)}> Edit Comment </button>
             <p> this button should populate the comment form with the current comment and user</p>
         </div>
     )
