@@ -6,7 +6,7 @@ export default class CommentList extends Component {
     
     sendComments = () => {
        return this.props.comments.map( (comment) => {
-            return <Comment comment={comment} editClick={this.props.editClick} key={`comment${comment.id}`}/>
+            return <Comment comment={comment} editClick={this.props.editClick} deleteClick={this.props.deleteClick} key={`comment-${comment.id}`}/>
         })
     }
     
