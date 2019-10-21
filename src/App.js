@@ -77,42 +77,58 @@ class App extends React.Component {
     })
   }
 
-  // makeNewComment = (commentObj) =>{
-  //   fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json'
-  //     },
-  //     body: JSON.stringify(commentObj)
-  //   })
-  //   .then(r => r.json())
-  //   .then(newComment => {
-  //     this.setState({
-  //       comments: [...this.state.comments, newComment]
-  //     })
-  //   })
-  // }
+  makeNewComment = (commentObj) =>{
+    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(commentObj)
+    })
+    .then(res => res.json())
+    .then(newComment => {
+      this.setState({
+        comments: [...this.state.comments, newComment]
+      })
+    })
+  }
   
   handleSubmit = (event) => {
     event.preventDefault();
     let formData = {doctor:this.state.doctor.id, content: this.state.content, author: this.state.author}
-    // this.makeNewComment(formData)
-    console.log(formData , 'i am a new comment')
+    this.makeNewComment(formData)
+    // console.log(formData , 'i am a new comment')
     this.setState({content: '', author: ''})
   }
 
-  // editComment = (commentObj) => {
-  //   fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments/${this.state.editComment.id}`, {
-  //     method: 'PATCH'
-  //   })
-  // } 
+  editComment = (commentObj) => {
+    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments/${this.state.editComment.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(commentObj)
+    })
+    .then(res => res.json())
+    .then(editedComment => {
+      const comments = this.state.comments.map( comment => {
+        return comment.id === editedComment.id ? editedComment : comment
+      })
+      this.setState({
+        comments
+      })
+    })
+  } 
 
 
   handleEditSubmit = (event) => {
     event.preventDefault()
-    let formData = {doctor:this.state.doctor.id, content: this.state.content, author: this.state.author}
-    console.log(formData, "i am an edited comment")
+    let formData = {content: this.state.content, author: this.state.author}
+    this.editComment(formData)
+    this.setState({content: '', author: ''})
+    // console.log(formData, "i am an edited comment")
   }
 
 
@@ -126,7 +142,7 @@ class App extends React.Component {
   }
   
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className="App">
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor} />
