@@ -13,7 +13,7 @@ class App extends React.Component {
     comments: [],
     author: '',
     content: '',
-    editComment: {}
+    editComment: null
 
   }
 
@@ -71,51 +71,66 @@ class App extends React.Component {
 
   
   handleFormChange = (event) => {
-    console.log(event.target.value, event.target.name)
+    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  makeNewComment = (commentObj) =>{
-    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(commentObj)
-    })
-    .then(r => r.json())
-    .then(newComment => {
-      debugger
-      this.setState({
-        comments: [...this.state.comments, newComment]
-      })
-    })
-  }
+  // makeNewComment = (commentObj) =>{
+  //   fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json'
+  //     },
+  //     body: JSON.stringify(commentObj)
+  //   })
+  //   .then(r => r.json())
+  //   .then(newComment => {
+  //     this.setState({
+  //       comments: [...this.state.comments, newComment]
+  //     })
+  //   })
+  // }
   
   handleSubmit = (event) => {
     event.preventDefault();
     let formData = {doctor:this.state.doctor.id, content: this.state.content, author: this.state.author}
-    this.makeNewComment(formData)
+    // this.makeNewComment(formData)
+    console.log(formData , 'i am a new comment')
     this.setState({content: '', author: ''})
-    console.log(formData, this.state.comments)
   }
+
+  // editComment = (commentObj) => {
+  //   fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments/${this.state.editComment.id}`, {
+  //     method: 'PATCH'
+  //   })
+  // } 
+
+
+  handleEditSubmit = (event) => {
+    event.preventDefault()
+    let formData = {doctor:this.state.doctor.id, content: this.state.content, author: this.state.author}
+    console.log(formData, "i am an edited comment")
+  }
+
 
   editClick = (event, commentObj) => {
     this.setState({
+      author: commentObj.author,
+      content: commentObj.content,
       editComment: commentObj
     })
-    console.log(`this should be the comment object ${commentObj}`, event.target, this.state.editComment)
+    // console.log(`this should be the comment object`, this.state.editComment)
   }
   
   render() {
-    console.log(this.state.currentIndex)
+    console.log(this.state)
     return (
       <div className="App">
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor} />
-          <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} editClick={this.editClick}/>
+          <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick}/>
       </div>
     );
   }
