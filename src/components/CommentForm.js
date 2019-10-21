@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+// SET STATE HERE ACCEPTING PROPS.
 export default function CommentForm({author, content, handleFormChange, handleSubmit, editComment, handleEditSubmit}) {
     console.log(editComment)
     return (
