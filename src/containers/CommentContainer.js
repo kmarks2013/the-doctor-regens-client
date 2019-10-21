@@ -8,7 +8,7 @@ export default class CommentContainer extends Component {
         return (
             <div>
             <CommentForm author={this.props.author} editComment={this.props.editComment} content={this.props.content} handleFormChange={this.props.handleFormChange} handleSubmit={this.props.handleSubmit} handleEditSubmit={this.props.handleEditSubmit}/>
-            <CommentList editClick={this.props.editClick} comments={this.props.comments} />
+            <CommentList editClick={this.props.editClick} comments={this.props.comments} deleteClick={this.props.deleteClick} />
             </div>
         )
     }

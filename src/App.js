@@ -17,8 +17,7 @@ class App extends React.Component {
 
   }
 
-  componentDidMount() {
-    console.log("I mounted!")
+  doctorFetch = () => {
     fetch(API)
     .then(res => res.json())
     .then(doctorArr => {
@@ -29,6 +28,11 @@ class App extends React.Component {
         comments: doctorArr[this.state.currentIndex].comments
       })
     })
+  }
+
+  componentDidMount() {
+    console.log("I mounted!")
+    this.doctorFetch()
   }
 
   makeNewComment = (commentObj) =>{
@@ -138,15 +142,25 @@ class App extends React.Component {
       content: commentObj.content,
       editComment: commentObj
     })
-    // console.log(`this should be the comment object`, this.state.editComment)
+  }
+
+  deleteClick = (event, commentObj) => {
+    console.log(event.target, commentObj)
+    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments/${commentObj.id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(
+      this.doctorFetch
+    )
   }
   
   render() {
     // console.log(this.state)
     return (
       <div className="App">
-          <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor} />
-          <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick}/>
+          <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
+          <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
       </div>
     );
   }
