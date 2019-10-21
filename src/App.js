@@ -1,6 +1,7 @@
 import React from 'react';
 import DoctorContainer from './containers/DoctorContainer'
 import CommentContainer from './containers/CommentContainer'
+import NavBar from './containers/NavBar'
 import './App.css';
 
 const API = "http://localhost:3000/doctors/"
@@ -71,6 +72,13 @@ class App extends React.Component {
       comments: this.state.doctors[newIndex].comments
     })
     // console.log(this.state.currentIndex)
+  }
+
+  chooseDoctor= (event, doctorObj) =>{
+    console.log(event.target, doctorObj)
+    this.setState({
+      doctor: doctorObj
+    })
   }
 
   
@@ -159,6 +167,7 @@ class App extends React.Component {
     // console.log(this.state)
     return (
       <div className="App">
+          <NavBar doctors={this.state.doctors} chooseDoctor={this.chooseDoctor} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
           <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
       </div>
