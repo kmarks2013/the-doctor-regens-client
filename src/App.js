@@ -4,7 +4,8 @@ import CommentContainer from './containers/CommentContainer'
 import NavBar from './containers/NavBar'
 import './App.css';
 
-const API = "http://localhost:3000/doctors/"
+const doctorAPI = "http://localhost:3000/doctors/"
+const userAPI= "http://localhost:3000/users/"
 
 class App extends React.Component {
   state = {
@@ -12,14 +13,16 @@ class App extends React.Component {
     doctor: {},
     currentIndex: 0,
     comments: [],
-    author: '',
+    username: '',
     content: '',
-    editComment: null
-
+    editComment: null,
+    loggedInUserId: localStorage.loggedInUserId,
+    token: null,
+    user: null
   }
 
   doctorFetch = () => {
-    fetch(API)
+    fetch(doctorAPI)
     .then(res => res.json())
     .then(doctorArr => {
     //  console.log(doctorArr)
@@ -31,35 +34,63 @@ class App extends React.Component {
     })
   }
 
+  setToken= (token, userId) => {
+    localStorage.token = token
+    localStorage.loggedInUserId = userId
+    this.setState({
+      token: token,
+      loggedInUserId: userId,
+    })
+  }
+
+  // userFetch = (id) => {
+  //   console.log(userAPI + id)
+  //   fetch(userAPI + id,{
+  //     headers: {
+  //       "Authorization": this.state.token
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(user => {
+  //     this.setState({
+  //       user: user
+  //     })
+  //   })
+  //   //fetch to users and set state of user to user state
+  // }
+
+
   componentDidMount() {
     console.log("I mounted!")
     this.doctorFetch()
+    // this.userFetch(this.state.loggedInUserId)
   }
 
-  makeNewComment = (commentObj) =>{
-    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(commentObj)
-    })
-    .then(r => r.json())
-    .then(newComment => {
-      debugger
-      this.setState({
-        comments: [...this.state.comments, newComment]
-      })
-    })
-  }
+  // makeNewComment = (commentObj) =>{
+  //   fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json'
+  //     },
+  //     body: JSON.stringify(commentObj)
+  //   })
+  //   .then(r => r.json())
+  //   .then(newComment => {
+  //     debugger
+  //     this.setState({
+  //       comments: [...this.state.comments, newComment]
+  //     })
+  //   })
+  // }
+
 
 
   nextDoctor = () => {
     console.log('i have been clicked and i should update the state of the current index to show the next doctor')
     console.log(this.state.doctors.length)
     let newIndex 
-    if (this.state.currentIndex >= 1) {
+    if (this.state.currentIndex >= 12) {
       // index will eventually be 12 for the range 0-13
       newIndex = 0
     } else {
@@ -75,9 +106,12 @@ class App extends React.Component {
   }
 
   chooseDoctor= (event, doctorObj) =>{
-    console.log(event.target, doctorObj)
+    console.log(event.target, doctorObj, this.state.currentIndex)
     this.setState({
-      doctor: doctorObj
+      doctor: doctorObj,
+      currentIndex: doctorObj.id - 1, 
+      comments: doctorObj.comments
+
     })
   }
 
@@ -90,7 +124,7 @@ class App extends React.Component {
   }
 
   makeNewComment = (commentObj) =>{
-    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
+    fetch(`http://localhost:3000/comments` ,{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -100,6 +134,7 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(newComment => {
+      // console.log(newComment)
       this.setState({
         comments: [...this.state.comments, newComment]
       })
@@ -108,14 +143,14 @@ class App extends React.Component {
   
   handleSubmit = (event) => {
     event.preventDefault();
-    let formData = {doctor:this.state.doctor.id, content: this.state.content, author: this.state.author}
+    let formData = {doctor_id:this.state.doctor.id, user_id:this.state.loggedInUserId, content: this.state.content}
     this.makeNewComment(formData)
+    this.setState({content: '', editComment: null})
     // console.log(formData , 'i am a new comment')
-    this.setState({content: '', author: ''})
   }
 
   editComment = (commentObj) => {
-    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments/${this.state.editComment.id}`, {
+    fetch(`http://localhost:3000/comments/${this.state.editComment.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -137,13 +172,12 @@ class App extends React.Component {
 
   handleEditSubmit = (event) => {
     event.preventDefault()
-    let formData = {content: this.state.content, author: this.state.author}
+    let formData = {content: this.state.content}
     this.editComment(formData)
-    this.setState({content: '', author: ''})
+    this.setState({content: '', editComment: null})
     // console.log(formData, "i am an edited comment")
   }
-
-
+  
   editClick = (event, commentObj) => {
     this.setState({
       author: commentObj.author,
@@ -154,7 +188,7 @@ class App extends React.Component {
 
   deleteClick = (event, commentObj) => {
     console.log(event.target, commentObj)
-    fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments/${commentObj.id}`, {
+    fetch(`http://localhost:3000/comments/${commentObj.id}`, {
       method: 'DELETE'
     })
     .then(res => res.json())
@@ -167,9 +201,9 @@ class App extends React.Component {
     // console.log(this.state)
     return (
       <div className="App">
-          <NavBar doctors={this.state.doctors} chooseDoctor={this.chooseDoctor} />
+          <NavBar doctors={this.state.doctors} setToken={this.setToken}chooseDoctor={this.chooseDoctor} userFetch={this.userFetch}/>
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
-          <CommentContainer comments={this.state.comments} editComment={this.state.editComment} author={this.state.author} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
+          <CommentContainer comments={this.state.comments} user={this.state.user} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
       </div>
     );
   }
