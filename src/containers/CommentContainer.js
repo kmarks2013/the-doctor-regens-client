@@ -9,7 +9,7 @@ export default class CommentContainer extends Component {
             return <CommentForm author={this.props.author} editComment={this.props.editComment} content={this.props.content} handleFormChange={this.props.handleFormChange} handleSubmit={this.props.handleSubmit} handleEditSubmit={this.props.handleEditSubmit}/>
         } else {
             return <h4>Create a new account to make a comment!</h4>
-        }
+        } 
 
     } 
 

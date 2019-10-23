@@ -5,6 +5,7 @@ import DoctorBio from '../components/DoctorBio'
 
 export default class DoctorContainer extends Component {    
 
+
     render() {
         // console.log(this.props)
         return (

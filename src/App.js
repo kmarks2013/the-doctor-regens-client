@@ -87,8 +87,8 @@ class App extends React.Component {
 
 
   nextDoctor = () => {
-    console.log('i have been clicked and i should update the state of the current index to show the next doctor')
-    console.log(this.state.doctors.length)
+    // console.log('i have been clicked and i should update the state of the current index to show the next doctor')
+    // console.log(this.state.doctors.length)
     let newIndex 
     if (this.state.currentIndex >= 12) {
       // index will eventually be 12 for the range 0-13
@@ -106,10 +106,10 @@ class App extends React.Component {
   }
 
   chooseDoctor= (event, doctorObj) =>{
-    console.log(event.target, doctorObj, this.state.currentIndex)
+    // console.log(event.target, doctorObj, this.state.currentIndex)
     this.setState({
       doctor: doctorObj,
-      currentIndex: doctorObj.id - 1, 
+      currentIndex: doctorObj.regenindex - 1, 
       comments: doctorObj.comments
 
     })

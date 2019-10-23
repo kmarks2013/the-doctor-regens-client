@@ -1,14 +1,27 @@
-import React from 'react'
-// import logo from '../logo.svg';
+import React, { Component } from 'react'
 
-export default function Doctor({doctor, nextDoctor}) {
-    // console.log(doctor)
-    return (
-        <div onClick={nextDoctor}>
-            {/* <h1>{doctor ?  doctor.name: null}</h1> */}
-            <h1>{doctor.name}</h1>
+export default class Doctor extends Component {
+    doctorImage = () => {
+        return this.docImage = `../images/${this.props.doctor.image}.png`
+    }
 
-            <img src={doctor.image} alt="" />
-        </div>
-    )
+    render() {
+        return (
+            <div onClick={this.props.nextDoctor}>
+                <h1>{this.props.doctor.name}</h1>
+                <img src={this.doctorImage()} alt="" />
+            </div>
+        )
+    }
 }
+
+// export default function Doctor({doctor, nextDoctor, doctorImage}) {
+//     // console.log(doctor)
+//     return (
+//         <div onClick={this.props.nextDoctor}>
+//             {/* <h1>{doctor ?  doctor.name: null}</h1> */}
+//             <h1>{this.props.doctor.name}</h1>
+
+//             <img src={this.} alt="" />
+//         </div>
+//     )
