@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import DoctorList from '../components/DoctorList'
 import LogIn from '../components/LogIn'
+import User from '../components/User'
+
 
 
 export default class NavBar extends Component {
@@ -14,14 +16,23 @@ export default class NavBar extends Component {
         //     }
         
         // }
-        
+        login = () => {
+            if (this.props.user){
+               return <User user={this.props.user}/>
+            } else {
+                return <LogIn setToken={this.props.setToken} userFetch={this.props.userFetch} />
+            } 
+    
+        } 
+
+
         render() {
             return (
-                <div>
+                <div className='nav-bar'>
                 {/* {this.logInOut()} */}
-                <LogIn setToken={this.props.setToken} userFetch={this.props.userFetch} />
-                <DoctorList doctors={this.props.doctors} chooseDoctor={this.props.chooseDoctor} />
-                
+                {this.login()}
+                {/* <User user={this.props.user}/> */}
+                <DoctorList doctors={this.props.doctors} chooseDoctor={this.props.chooseDoctor} />  
             </div>
         )
     }

@@ -9,7 +9,7 @@ export default function CommentForm({ content, handleFormChange, handleSubmit, e
             <form onSubmit={editComment ? (event) => handleEditSubmit(event) :(event) => handleSubmit(event)}>
                 <label>Leave A Comment</label>
                 <br/>
-                <textarea name='content' placeholder={editComment ? editComment.content : 'Add Content'} rows='4' cols='50' onChange={(event) => handleFormChange(event)} defaultValue={content}/>
+                <textarea name='content' placeholder={editComment ? editComment.content : 'Add Content'} rows='4' cols='50' onChange={(event) => handleFormChange(event)} value={content}/>
                 <input type='submit'/>
             </form>
         </div>

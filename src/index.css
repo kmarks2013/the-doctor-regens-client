@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  margin: 0 auto;
+ 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -13,14 +14,40 @@ code {
 }
 
 
+/* #main-container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 70% 20%;
+  grid-template-areas:
+      'nav-bar'
+      'doctor-container'
+      'comment-container';
+  background-color: #ededed;
+} */
+
 /* #doctor-container {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
-  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 10% 70% 20%;
+  grid-template-rows: 10% 70% 20%;
   grid-template-areas:
-      '. doctor-container'
-      'side-bar wb-container';
-  background-color: #ededed;
-} */
+      ' . doctor doctor-bio '
+      ' . doctor doctor-bio';
+  /* background-color: #ededed; */
+/* } */
+
+/* #nav-bar{ */
+  /* height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 10% 70% 20%;
+  grid-template-areas:
+      ' . . login'
+      ' doctor-name doctor-name doctor-name'; */
+  /* background-color: #ededed; */
+/* } */
+

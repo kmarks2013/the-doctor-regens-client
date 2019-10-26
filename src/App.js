@@ -10,7 +10,7 @@ const userAPI= "http://localhost:3000/users/"
 class App extends React.Component {
   state = {
     doctors: [],
-    doctor: {},
+    doctor: {},  //maybe find the id isntead to pull out specficif doctors.
     currentIndex: 0,
     comments: [],
     username: '',
@@ -43,26 +43,29 @@ class App extends React.Component {
     })
   }
 
-  // userFetch = (id) => {
-  //   console.log(userAPI + id)
-  //   fetch(userAPI + id,{
-  //     headers: {
-  //       "Authorization": this.state.token
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then(user => {
-  //     this.setState({
-  //       user: user
-  //     })
-  //   })
+  userFetch = (id) => {
+    console.log(userAPI + id)
+    fetch(userAPI + id,{
+      headers: {
+        "Authorization": this.state.token
+      }
+    })
+    .then(res => res.json())
+    .then(user => {
+      this.setState({
+        user: user
+      })
+    })
   //   //fetch to users and set state of user to user state
-  // }
+  }
 
 
   componentDidMount() {
     console.log("I mounted!")
     this.doctorFetch()
+    if (this.state.user) {
+      return this.userfetch()
+    }
     // this.userFetch(this.state.loggedInUserId)
   }
 
@@ -136,16 +139,27 @@ class App extends React.Component {
     .then(newComment => {
       // console.log(newComment)
       this.setState({
-        comments: [...this.state.comments, newComment]
+        comments: [...this.state.comments, newComment],
+        // content: '',
+        // editComment: null
       })
     })
+    this.submitClear() 
+
   }
-  
+
+  submitClear = () => {
+    this.setState({
+      content: '', 
+      editComment: null
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     let formData = {doctor_id:this.state.doctor.id, user_id:this.state.loggedInUserId, content: this.state.content}
     this.makeNewComment(formData)
-    this.setState({content: '', editComment: null})
+    // this.setState({content: '', editComment: null})
     // console.log(formData , 'i am a new comment')
   }
 
@@ -164,9 +178,12 @@ class App extends React.Component {
         return comment.id === editedComment.id ? editedComment : comment
       })
       this.setState({
-        comments
+        comments,
+        // content: '', 
+        // editComment: null
       })
     })
+    this.submitClear()
   } 
 
 
@@ -174,7 +191,7 @@ class App extends React.Component {
     event.preventDefault()
     let formData = {content: this.state.content}
     this.editComment(formData)
-    this.setState({content: '', editComment: null})
+    // this.setState({content: '', editComment: null})
     // console.log(formData, "i am an edited comment")
   }
   
@@ -200,8 +217,8 @@ class App extends React.Component {
   render() {
     // console.log(this.state)
     return (
-      <div className="App">
-          <NavBar doctors={this.state.doctors} setToken={this.setToken}chooseDoctor={this.chooseDoctor} userFetch={this.userFetch}/>
+      <div className="main-cointainer" className="App" >
+          <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
           <CommentContainer comments={this.state.comments} user={this.state.user} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
       </div>

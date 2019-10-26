@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function DoctorBio({doctor}) {
+export default function DoctorBio({doctor, reverseBioComp}) {
     return (
-        <div>
-            <h4>{doctor.bio}</h4>
-            {/* <button onClick={doctor ?  doctor.wikilink: null}>More Info</button> */}
+        <div className='doctor-bio'>
+            <p>{reverseBioComp()}</p>
+            <a className='more-info' href={doctor ?  doctor.wikilink: null} target='_blank'>More Info!</a>
+            {/* <button onClick={reverseOnClick}>Reverse Bio</button> */}
         </div>
     )
 }

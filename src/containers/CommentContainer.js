@@ -16,12 +16,12 @@ export default class CommentContainer extends Component {
     render() {
         // console.log(this.props.comments)
         return (
-            <div>
+            <div className='comment-container'>
                 <div>
                 {this.showForm()}
                 </div>
                 <div>
-                <CommentList editClick={this.props.editClick} comments={this.props.comments} deleteClick={this.props.deleteClick} />
+                <CommentList loggedInUserId={this.props.loggedInUserId} editClick={this.props.editClick} comments={this.props.comments} deleteClick={this.props.deleteClick} />
                 </div>
             </div>
         )

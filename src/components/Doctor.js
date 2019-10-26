@@ -7,7 +7,7 @@ export default class Doctor extends Component {
 
     render() {
         return (
-            <div onClick={this.props.nextDoctor}>
+            <div className='doctor' onClick={this.props.nextDoctor}>
                 <h1>{this.props.doctor.name}</h1>
                 <img src={this.doctorImage()} alt="" />
             </div>
