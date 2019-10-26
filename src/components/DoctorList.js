@@ -10,7 +10,7 @@ export default class DoctorList extends Component {
 
     render() {
         return (
-            <div>
+            <div className='doctors'>
                {this.renderDoctorNames()} 
             </div>
         )

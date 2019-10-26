@@ -1,17 +1,29 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-export default function Comment({comment , editClick, deleteClick}) {
+export default class Comment extends Component{
     // console.log(comment)
+        editDeleteButtons = () =>  {
+            if (this.props.loggedInUserId === this.props.comment.user.id){
+                return (  
+                    <div>
+                    <button onClick={(event) => this.props.editClick(event, this.props.comment)}> Edit Comment </button>
+                    <button onClick={(event) => this.props.deleteClick(event, this.props.comment)}>Delete Comment</button>
+                    </div>
+                )
+                } else{
+                   return null
+                }
+        }
+    render() { 
     return (
         <div>
             {/* <p> this should render the author name and date</p> */}
-            <p>{comment.author}</p>
+            <p className='comment-user'>{this.props.comment.user.username}</p>
             {/* <p>this should render the content</p> */}
-            <p>{comment.content}</p>
-            {/* <p> the comment should be realted to a specific doctor</p> */}
-            <button onClick={(event) => editClick(event, comment)}> Edit Comment </button>
-            <button onClick={(event) => deleteClick(event, comment)}>Delete Comment</button>
+            <p className='comment-content'>{this.props.comment.content}</p>
+            {this.editDeleteButtons()}
         </div>
     )
+    }
 }
  

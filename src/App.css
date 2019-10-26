@@ -1,10 +1,12 @@
 .App {
   text-align: center;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
-}
+} */
+
+
 
 .App {
   background-color: #003D6B;
@@ -15,8 +17,106 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
+  
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+.sign-up{
+ width:100vw;
+ margin-right: 100px;
+ position: relative;
+
+}
+
+.sign-up h4{
+  text-align: right;
+  margin-right: 50px;
+  font-family:
+}
+.log-in-button{
+
+  padding:10px;
+  position: absolute;
+  top: 7%;
+  right: 25%;
+}
+
+.sign-up-form{
+  display:inline-block;
+  float:right;
+  font-size: 20px;
+  
+}
+
+.login{
+ width:100vw;
+ margin-right: 100px;
+ position: relative;
+}
+
+.login h6{
+  text-align: right;
+  margin-right: 50px;
+ 
+}
+.sign-up-button{
+
+  padding:10px;
+  position: absolute;
+  top: 7%;
+  right: 25%;
+}
+
+.login-form{
+  display:inline-block;
+  float:right;
+  font-size: 20px;
+  
+}
+
+.clear{
+  clear:both;
+  height:50px;
+}
+
+.doctor-name{
+  display: inline-block;
+  float:left;
+  margin:30px;
+}
+
+.doctors{
+  clear: both;
+  margin-left:7%;
+  height:10vh;
+}
+
+.doctor img{
+  width:30%;
+}
+
+.comments{
+  margin: 5px;
+  border: 1px solid black;
+  background: white;
+  color: black
+}
+
+.comment-user{
+  text-align: left;
+  font-size: 10px;
+}
+
+
+.comment-content{
+  text-align: left;
+  font-size: 20px;
+}
+
+.more-info{
+  color: white;
 }
