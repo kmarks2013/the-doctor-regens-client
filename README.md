@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Doctor Regens
 
-## Available Scripts
+## What is The Doctor Regens? 
+The Doctor Regens started out as a simple one page applicaiton a person can visit the page and click through the different incarnations of the Doctors from the BBC's Doctor Who. It has grown and is continuing to grow into a fan forum, where fans can vist the page and leave comments about their favorite Doctor.
 
-In the project directory, you can run:
+### Motivation
 
-### `yarn start`
+I am a huge fan of the TV series and wanted to show my appreciation by creating a fun interactive app.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Front-end
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The Doctor Regens is built using React as its front end framework.
 
-### `yarn test`
+The images were found through various outlets online and text content is sourced from [The Tardis Data Core](https://tardis.fandom.com/wiki/Doctor_Who_Wiki). 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### Back-end
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Doctor Regens API is built with Ruby on Rails.  For authentication, authorization and security it uses Bcrypt and JWT, and PostgresSql for its database.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To see more information about the api please see below:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[The Docotor Regens Api](https://github.com/kmarks2013/the-doctor-regens-api)
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Demo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- to be added.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Screenshots
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- to be added.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Clone the repo and CD inside of the directory
+    npm install
+    npm start
 
-### Code Splitting
+Be sure to visit the repo for the [backend](https://github.com/kmarks2013/league-of-loadouts-api) and follow those instructions!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Technologies Used
 
-### Analyzing the Bundle Size
+1. React
+2. CSS
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Special Thanks
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+I would like to thank all the Doctor who Fans who made the [Tardis Data Core](https://tardis.fandom.com/wiki/Doctor_Who_Wiki) a great source of infomration about the series.

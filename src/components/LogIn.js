@@ -24,7 +24,7 @@ export default class LogIn extends React.Component {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json',
-                    "Accepts": 'application/json'
+                    "Accept": 'application/json'
                 },
                 body: JSON.stringify({
                     'username': this.state.username,
@@ -56,6 +56,7 @@ export default class LogIn extends React.Component {
             })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 if (data.errors) {
                     this.setState({
                         errors: data.errors

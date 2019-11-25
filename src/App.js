@@ -80,7 +80,7 @@ class App extends React.Component {
   //   })
   //   .then(r => r.json())
   //   .then(newComment => {
-  //     debugger
+  //   
   //     this.setState({
   //       comments: [...this.state.comments, newComment]
   //     })
@@ -99,7 +99,7 @@ class App extends React.Component {
     } else {
       newIndex = this.state.currentIndex + 1
     }
-    // debugger
+    
     this.setState({
       doctor: this.state.doctors[newIndex],
       currentIndex: newIndex,
