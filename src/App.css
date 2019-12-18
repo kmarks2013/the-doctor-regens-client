@@ -11,6 +11,7 @@
 .App {
   background-color: #003D6B;
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,6 +132,22 @@ h4{
 }
 
 .doctor-container{
-  display: table-column;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.tardis{
+  border: 2px solid black;
+  width: 15vw;
+}
+.doctor{
+  border: 2px solid black;
+  width: 65vw;
+}
+
+.doctor-bio{
+  border: 2px solid black;
+  margin-right: 2rem;
+  width: 21vw;
+  font-size: 1rem;
 }

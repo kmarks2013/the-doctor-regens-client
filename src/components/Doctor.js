@@ -9,7 +9,7 @@ export default class Doctor extends Component {
         return (
             <div className='doctor' onClick={this.props.nextDoctor}>
                 <h1>{this.props.doctor.name}</h1>
-                <img src={this.doctorImage()} alt="" />
+                <img className='doctor-image'src={this.doctorImage()} alt="" />
             </div>
         )
     }
