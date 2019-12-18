@@ -2,9 +2,7 @@ import React from 'react';
 import DoctorContainer from './containers/DoctorContainer'
 import CommentContainer from './containers/CommentContainer'
 import NavBar from './containers/NavBar'
-// import 'bulma/sass/utilities/_all.sass'
-// import "bulma/sass/grid/columns.sass"
-// import './App.css';
+import './App.css';
 
 const doctorAPI = "http://localhost:3000/doctors/"
 const userAPI= "http://localhost:3000/users/"

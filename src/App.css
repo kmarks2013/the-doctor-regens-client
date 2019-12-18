@@ -131,6 +131,23 @@ h4{
 }
 
 .doctor-container{
-  display: table-column;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.tardis{
+  border: 2px solid black;
+  
+  margin: 5rem;
+}
+.doctor{
+  border: 2px solid black;
+  width: 30 rem;
+}
+
+.doctor-bio{
+  border: 2px solid black;
+  margin-right: 2rem;
+  width: 20%;
+  font-size: 1rem;
 }
