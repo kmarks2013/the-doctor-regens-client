@@ -45,6 +45,13 @@ Be sure to visit the repo for the [backend](https://github.com/kmarks2013/league
 1. React
 2. CSS
 
+### Future Updates
+
+1. A button that changes the background to each Doctors tardis interior
+2. Informational Links to each Doctor's sonic devices
+3. Links to info about each Doctor's companions.
+4. Easter Eggs!
+
 ### Special Thanks
 
 I would like to thank all the Doctor who Fans who made the [Tardis Data Core](https://tardis.fandom.com/wiki/Doctor_Who_Wiki) a great source of infomration about the series.
