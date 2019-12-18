@@ -79,15 +79,16 @@ export default class LogIn extends React.Component {
     render() {
         return (
             < >
+            {this.state.errors.length > 0 ? 
             <ul>
                 {this.state.errors.map(error => <li>{error}</li>)}
-            </ul>
+            </ul> : null
+            }
             { 
                 this.state.logIn 
                 ?    
-                <section className='login'>
-                <h6>Log In </h6>
-                <button className='sign-up-button' onClick={ () => this.setState({logIn: false })} > Create an Account</button>
+                <div className='login'>
+                <h4>Log In </h4>
                 <form className='login-form' onSubmit={ this.logInSubmitted } >
                     <label htmlFor='log_in_username'>Username</label>
                     <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
@@ -95,11 +96,13 @@ export default class LogIn extends React.Component {
                     <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
                     <input type="submit" />
                 </form>
-                </section>
+                <button className='sign-up-button' onClick={ () => this.setState({logIn: false })} > Click to Create an Account</button>
+                </div>
                 :
-                <section className='sign-up'>
-                <h4>Sign Up </h4>
-                <button  className="log-in-button" onClick={ () => this.setState( {logIn: true })} > Log In </button>
+                <div className='sign-up'>
+               
+                    <h4>Sign Up </h4>
+                
                 <form className='sign-up-form' onSubmit={ this.logInSubmitted } >
                     <label htmlFor='sign_up_username'>Username</label>
                     <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
@@ -107,9 +110,8 @@ export default class LogIn extends React.Component {
                     <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
                     <input type="submit" />
                 </form>
-                <div className="clear"></div>
-
-                </section>
+                    <button  className="log-in-button" onClick={ () => this.setState( {logIn: true })} > Click to Log In </button>
+                </div>
             }
 
             </>

@@ -5,7 +5,7 @@ export default function User(props) {
     return (
         <div>
             <h4>{props.user.username}</h4>
-            <button onClick={() => localStorage.clear()}>Log Out</button>
+            <button onClick={props.logout}>Log Out</button>
         </div>
     )
 }

@@ -16,14 +16,20 @@ export default class NavBar extends Component {
         //     }
         
         // }
+        logout = () => {
+            localStorage.clear()
+            this.forceUpdate()
+        }
+
         login = () => {
             if (this.props.user){
-               return <User user={this.props.user}/>
+               return <User user={this.props.user} logout={this.logout}/>
             } else {
                 return <LogIn setToken={this.props.setToken} userFetch={this.props.userFetch} />
             } 
     
         } 
+
 
 
         render() {
