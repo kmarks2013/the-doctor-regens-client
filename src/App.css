@@ -1,12 +1,12 @@
-.App {
-  text-align: center;
-}
+
 /* 
 .App-logo {
   height: 40vmin;
 } */
 
-
+.App {
+  text-align: center;
+}
 
 .App {
   background-color: #003D6B;
@@ -20,85 +20,91 @@
   
   
 }
+h4{
+  margin: 0;
+}
 
 .App-link {
   color: #09d3ac;
 }
 
+
+.nav-bar{
+  width: 100vw;
+  display: flexbox ;
+  flex-wrap: wrap;
+}
+
+/*SIGN UP FORM CSS*/
 .sign-up{
+ display: flex;
  width:100vw;
  margin-right: 100px;
  position: relative;
-
 }
 
-.sign-up h4{
-  text-align: right;
-  margin-right: 50px;
-  font-family:
+.sign-up-header{
+  display: flex;
+  margin: 0px;
+  position: relative;
 }
+
+
 .log-in-button{
-
   padding:10px;
-  position: absolute;
   top: 7%;
   right: 25%;
 }
 
 .sign-up-form{
-  display:inline-block;
-  float: right;
+  display:float;
   font-size: 20px;
   
 }
-
+/* LOGIN FORM CSS */
 .login{
+ display: flex;
  width:100vw;
  margin-right: 100px;
  position: relative;
 }
 
-.login h6{
-  text-align: right;
-  margin-right: 50px;
- 
+.login h4{
+  margin: 0px;
 }
 .sign-up-button{
-
   padding:10px;
-  position: absolute;
   top: 7%;
   right: 25%;
 }
 
 .login-form{
-  display:inline-block;
-  float:right;
+  padding: 0px;
+  display: float;
   font-size: 20px;
-  
 }
 
-.clear{
-  clear:both;
-  height:50px;
+
+
+.doctors{
+  /* border: 3px black ridge; */
+  clear: both;
+  height:10vh;
+  display: flex;
+  flex-wrap: nowrap; 
+  overflow: auto
+  
 }
 
 .doctor-name{
-  display: inline-block;
+  flex: 0 0 auto;
   float:left;
   margin:30px;
-}
-
-.doctors{
-  clear: both;
-  margin-left:7%;
-  height:10vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  
+  margin-right: -4px
 }
 
 .doctor img{
+  position: center;
   width:30%;
 }
 
