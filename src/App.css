@@ -9,7 +9,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: 70vh;;  
+  height: 70vh;
+  box-sizing: border-box;
 }
 
 h4{
@@ -99,28 +100,23 @@ h4{
 
 
 
-.comment-content{
-  text-align: left;
-  font-size: 20px;
-}
-
-.more-info{
-  color: white;
-}
 
 .doctor-container{
+  border: 2px green solid;
   display: flex;
   flex-direction: row;
+  height: 60vh;
 }
 
 .pull-to-open{
+  border: 1px  solid orange;
   display: flexbox;
   flex-direction: row;
   width: 20vw
 }
 
 .pull-to-open img{
- width: 30%;
+  width: 50%;
 }
 
 .pull-to-open img:active{
@@ -131,9 +127,14 @@ h4{
 .doctor{
   border: 2px solid black;
   width: 65vw;
+  
 }
 
-.doctor img{
+.doctor h1{
+  margin: 0;
+}
+
+.doctor-image{
   position: center;
   width:30%;
 }
@@ -145,13 +146,21 @@ h4{
   font-size: 1rem;
 }
 
+.more-info{
+  color: white;
+}
+
 .comments{
   margin: 5px;
-  border: 1px solid black;
+  border: 1px solid red;
   background: white;
   color: black
 }
 
+.comment-content{
+  text-align: left;
+  font-size: 20px;
+}
 .comment-user{
   text-align: left;
   font-size: 10px;
