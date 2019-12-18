@@ -30,8 +30,12 @@ export default class DoctorContainer extends Component {
         // console.log(this.props)
         return (
             <div className='doctor-container'>
-                <div className='tardis'>
-                <button> Change Background </button>
+                <div className='pull-to-open'>
+                <img src='./images/pullToOpen.jpg' alt='' />
+                <br/>
+                <button> Sonic Devices!</button>
+                <br/>
+                <button> Companions!</button>
                 </div>
                 <Doctor doctor={this.props.doctor} nextDoctor={this.props.nextDoctor}/>
                 <DoctorBio doctor={this.props.doctor} reverseBioComp={this.reverseBioComp} reverseOnClick={this.reverseOnClick}/>
