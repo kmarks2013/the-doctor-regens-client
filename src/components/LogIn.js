@@ -1,4 +1,5 @@
 import React from 'react'
+// import { useAlert } from "react-alert";÷
 
 export default class LogIn extends React.Component {
     
@@ -9,13 +10,14 @@ export default class LogIn extends React.Component {
         errors: []
     }   
 
+    
     onChange= event => {
         this.setState({
             [event.target.name]: event.target.value
         })
-
+        
     }
-
+    
     logInSubmitted = (event) => {
         event.preventDefault()
         console.log('iwas submitted')
@@ -67,16 +69,17 @@ export default class LogIn extends React.Component {
                 }
             })
         }
-       
+        
         this.setState({
             username: '',
             password: '',
             errors: []
         })
     }
-
-
+    
+    
     render() {
+        // const alert = useAlert()
         return (
             < >
             {this.state.errors.length > 0 ? 
@@ -88,28 +91,26 @@ export default class LogIn extends React.Component {
                 this.state.logIn 
                 ?    
                 <div className='login'>
-                <h4>Log In </h4>
-                <form className='login-form' onSubmit={ this.logInSubmitted } >
-                    <label htmlFor='log_in_username'>Username</label>
-                    <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
-                    <label htmlFor='log_in_password'>Password</label>
-                    <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
-                    <input type="submit" />
-                </form>
-                <button className='sign-up-button' onClick={ () => this.setState({logIn: false })} > Click to Create an Account</button>
+                    <p>Log In </p>
+                    <form className='login-form' onSubmit={ this.logInSubmitted } >
+                        <label htmlFor='log_in_username'>Username</label>
+                        <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
+                        <label htmlFor='log_in_password'>Password</label>
+                        <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
+                        <input type="submit" />
+                    </form>
+                    <button className='sign-up-button' onClick={ () => this.setState({logIn: false })} > Click to Create an Account</button>
                 </div>
                 :
                 <div className='sign-up'>
-               
-                    <h4>Sign Up </h4>
-                
-                <form className='sign-up-form' onSubmit={ this.logInSubmitted } >
-                    <label htmlFor='sign_up_username'>Username</label>
-                    <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
-                    <label htmlFor='sign_up_password'>Password</label>
-                    <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
-                    <input type="submit" />
-                </form>
+                    <p>Sign Up </p>
+                    <form className='sign-up-form' onSubmit={ this.logInSubmitted } >
+                        <label htmlFor='sign_up_username'>Username</label>
+                        <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
+                        <label htmlFor='sign_up_password'>Password</label>
+                        <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
+                        <input type="submit" />
+                    </form>
                     <button  className="log-in-button" onClick={ () => this.setState( {logIn: true })} > Click to Log In </button>
                 </div>
             }
