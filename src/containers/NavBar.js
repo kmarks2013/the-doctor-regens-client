@@ -7,15 +7,6 @@ import User from '../components/User'
 
 export default class NavBar extends Component {
 
-    // logInOut = () => {
-    //     if (localStorage.id) {
-            // <button onClick={() => localStorage.clear()}>LogOut</button>
-    //     } else {
-        // <LogIn setToken={this.props.setToken} userFetch={this.props.userFetch} />
-
-        //     }
-        
-        // }
         logout = () => {
             localStorage.clear()
             this.forceUpdate()
@@ -35,10 +26,13 @@ export default class NavBar extends Component {
         render() {
             return (
                 <div className='nav-bar'>
-                <h2> The Doctor Regens</h2>
-                {/* {this.logInOut()} */}
-                {this.login()}
-                {/* <User user={this.props.user}/> */}
+                <div className='title-log'>
+                    <div className='title'>
+                    <h2> The Doctor Regens</h2>
+                    </div>
+                    {this.login()}
+                </div>
+
                 <DoctorList doctors={this.props.doctors} chooseDoctor={this.props.chooseDoctor} />  
             </div>
         )
