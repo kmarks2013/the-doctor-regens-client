@@ -35,6 +35,7 @@ export default class NavBar extends Component {
         render() {
             return (
                 <div className='nav-bar'>
+                <h2> The Doctor Regens</h2>
                 {/* {this.logInOut()} */}
                 {this.login()}
                 {/* <User user={this.props.user}/> */}
