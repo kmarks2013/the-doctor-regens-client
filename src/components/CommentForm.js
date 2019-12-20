@@ -1,12 +1,9 @@
 import React from 'react'
 
-
-// SET STATE HERE ACCEPTING PROPS.
 export default function CommentForm({ content, handleContent, handleSubmit, editComment, handleEditSubmit}) {
-
     return (
         <div>
-            <form onSubmit={(event) => handleSubmit(event)}/*onSubmit={editComment ? (event) => handleEditSubmit(event) :(event) => handleSubmit(event)}*/>
+            <form onSubmit={editComment ? (event) => handleEditSubmit(event) : (event) => handleSubmit(event)}>
                 <label>Leave A Comment</label>
                 <br/>
                 <textarea name='content' placeholder={editComment ? editComment.content : 'Add Content'} rows='4' cols='50' onChange={(event) => handleContent(event)} value={content}/>
