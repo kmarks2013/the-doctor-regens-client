@@ -96,7 +96,6 @@ class App extends React.Component {
   // }
 
 
-comment
   makeNewComment = (commentObj) =>{
     fetch(`http://localhost:3000/comments` ,{
       method: 'POST',
@@ -156,7 +155,6 @@ comment
     })
     this.submitClear()
   } 
-
 
   handleEditSubmit = (event) => {
     event.preventDefault()
