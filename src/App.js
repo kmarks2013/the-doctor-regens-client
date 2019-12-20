@@ -10,12 +10,10 @@ const userAPI= "http://localhost:3000/users/"
 class App extends React.Component {
   state = {
     doctors: [],
-    doctor: {},  //maybe find the id isntead to pull out specficif doctors.
+    doctor: {},
     currentIndex: 0,
     comments: [],
     username: '',
-    content: '',
-    editComment: null,
     loggedInUserId: localStorage.loggedInUserId,
     token: null,
     user: null
@@ -25,7 +23,6 @@ class App extends React.Component {
     fetch(doctorAPI)
     .then(res => res.json())
     .then(doctorArr => {
-    //  console.log(doctorArr)
       this.setState({
         doctors: doctorArr,
         doctor: doctorArr[this.state.currentIndex],
@@ -56,7 +53,6 @@ class App extends React.Component {
         user: user
       })
     })
-  //   //fetch to users and set state of user to user state
   }
 
 
@@ -66,66 +62,40 @@ class App extends React.Component {
     if (this.state.user) {
       return this.userfetch()
     }
-    // this.userFetch(this.state.loggedInUserId)
   }
 
-  // makeNewComment = (commentObj) =>{
-  //   fetch(`http://localhost:3000/doctors/${this.state.doctor.id}/comments` ,{
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json'
-  //     },
-  //     body: JSON.stringify(commentObj)
-  //   })
-  //   .then(r => r.json())
-  //   .then(newComment => {
-  //   
-  //     this.setState({
-  //       comments: [...this.state.comments, newComment]
-  //     })
-  //   })
-  // }
-
-
-
   nextDoctor = () => {
-    // console.log('i have been clicked and i should update the state of the current index to show the next doctor')
-    // console.log(this.state.doctors.length)
     let newIndex 
-    if (this.state.currentIndex >= 12) {
-      // index will eventually be 12 for the range 0-13
-      newIndex = 0
-    } else {
-      newIndex = this.state.currentIndex + 1
-    }
-    
+      if (this.state.currentIndex >= 12) {
+        newIndex = 0
+      } else {
+        newIndex = this.state.currentIndex + 1
+      }
     this.setState({
       doctor: this.state.doctors[newIndex],
       currentIndex: newIndex,
       comments: this.state.doctors[newIndex].comments
     })
-    // console.log(this.state.currentIndex)
   }
 
-  chooseDoctor= (event, doctorObj) =>{
-    // console.log(event.target, doctorObj, this.state.currentIndex)
+  chooseDoctor= ( doctorObj) =>{
     this.setState({
       doctor: doctorObj,
       currentIndex: doctorObj.regenindex - 1, 
       comments: doctorObj.comments
-
     })
   }
 
-  
-  handleFormChange = (event) => {
-    console.log(event.target.value)
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+  //THIS IS NOW IN THE COMMMENT CONTAINER
+  // handleFormChange = (event) => {
+  //   console.log(event.target.value)
+  //   this.setState({
+  //     [event.target.name]: event.target.value
+  //   })
+  // }
 
+
+comment
   makeNewComment = (commentObj) =>{
     fetch(`http://localhost:3000/comments` ,{
       method: 'POST',
@@ -195,13 +165,14 @@ class App extends React.Component {
     // console.log(formData, "i am an edited comment")
   }
   
-  editClick = (event, commentObj) => {
-    this.setState({
-      author: commentObj.author,
-      content: commentObj.content,
-      editComment: commentObj
-    })
-  }
+  //THIS IS NOW IN THE COMMENT CONTAINER
+  // editClick = (event, commentObj) => {
+  //   this.setState({
+  //     content: commentObj.content,
+  //     editComment: commentObj
+  //   })
+  // }
+
 
   deleteClick = (event, commentObj) => {
     console.log(event.target, commentObj)
@@ -215,7 +186,6 @@ class App extends React.Component {
   }
   
   render() {
-    // console.log(this.state)
     return (
       <div className="main-cointainer" className="App" >
           <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
