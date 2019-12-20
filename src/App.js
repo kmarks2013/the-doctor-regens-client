@@ -10,7 +10,7 @@ const userAPI= "http://localhost:3000/users/"
 class App extends React.Component {
   state = {
     doctors: [],
-    doctor: {},  //maybe find the id isntead to pull out specficif doctors.
+    doctor: {},
     currentIndex: 0,
     comments: [],
     username: '',
@@ -25,7 +25,6 @@ class App extends React.Component {
     fetch(doctorAPI)
     .then(res => res.json())
     .then(doctorArr => {
-    //  console.log(doctorArr)
       this.setState({
         doctors: doctorArr,
         doctor: doctorArr[this.state.currentIndex],
@@ -56,7 +55,6 @@ class App extends React.Component {
         user: user
       })
     })
-  //   //fetch to users and set state of user to user state
   }
 
 
@@ -66,7 +64,6 @@ class App extends React.Component {
     if (this.state.user) {
       return this.userfetch()
     }
-    // this.userFetch(this.state.loggedInUserId)
   }
 
   // makeNewComment = (commentObj) =>{
@@ -215,7 +212,6 @@ class App extends React.Component {
   }
   
   render() {
-    // console.log(this.state)
     return (
       <div className="main-cointainer" className="App" >
           <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
