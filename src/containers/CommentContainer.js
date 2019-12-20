@@ -28,7 +28,18 @@ export default class CommentContainer extends Component {
           content: '', 
           editComment: null
         })
-      }
+    }
+
+    handleEditSubmit = (event) => {
+        event.preventDefault()
+        let formData = {content: this.state.content}
+        console.log(formData)
+        console.log(this.state.editComment)
+        // this.editComment(formData)
+        // this.setState({content: '', editComment: null})
+        // console.log(formData, "i am an edited comment")
+    }
+          
     handleSubmit = (event) => {
         event.preventDefault();
         let formData = {doctor_id:this.props.doctor.id, user_id:this.props.loggedInUserId, content: this.state.content}
@@ -40,13 +51,11 @@ export default class CommentContainer extends Component {
     showForm = () => {
         if (this.props.loggedInUserId){
             return <CommentForm editComment={this.state.editComment} content={this.state.content}
-            handleContent={this.handleContent} handleSubmit={this.handleSubmit} handleEditSubmit={this.props.handleEditSubmit}/>
+            handleContent={this.handleContent} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit}/>
         } else {
             return <h4>Create a new account to make a comment!</h4>
         } 
     }
-
-
 
     render() {
         return (
