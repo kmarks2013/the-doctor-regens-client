@@ -191,7 +191,7 @@ comment
       <div className="main-cointainer" className="App" >
           <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
-          <CommentContainer comments={this.state.comments} user={this.state.user} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
+          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
       </div>
     );
   }
