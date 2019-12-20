@@ -114,16 +114,17 @@ class App extends React.Component {
         // editComment: null
       })
     })
-    this.submitClear() 
-
+    // this.submitClear() 
   }
 
-  submitClear = () => {
-    this.setState({
-      content: '', 
-      editComment: null
-    })
-  }
+
+  // submitClear = () => {
+  //   this.setState({
+  //     content: '', 
+  //     editComment: null
+  //   })
+  // }
+
 
   handleSubmit = (event) => {
     event.preventDefault();
