@@ -3,7 +3,6 @@ import React from 'react'
 
 // SET STATE HERE ACCEPTING PROPS.
 export default function CommentForm({ content, handleContent, handleSubmit, editComment, handleEditSubmit}) {
-
     return (
         <div>
             <form onSubmit={(event) => handleSubmit(event)}/*onSubmit={editComment ? (event) => handleEditSubmit(event) :(event) => handleSubmit(event)}*/>

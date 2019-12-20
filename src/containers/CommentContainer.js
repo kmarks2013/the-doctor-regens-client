@@ -21,15 +21,22 @@ export default class CommentContainer extends Component {
           content: commentObj.content,
           editComment: commentObj
         })
+    }
+    
+    submitClear = () => {
+        this.setState({
+          content: '', 
+          editComment: null
+        })
       }
-      
-      handleSubmit = (event) => {
-          event.preventDefault();
-          let formData = {doctor_id:this.props.doctor.id, user_id:this.props.loggedInUserId, content: this.state.content}
-          // this.props.makeNewComment(formData)
-          console.log(formData)
-        }
-      
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let formData = {doctor_id:this.props.doctor.id, user_id:this.props.loggedInUserId, content: this.state.content}
+        // this.props.makeNewComment(formData)
+        console.log(formData)
+        this.submitClear()
+    }
+        
     showForm = () => {
         if (this.props.loggedInUserId){
             return <CommentForm editComment={this.state.editComment} content={this.state.content}
@@ -39,12 +46,6 @@ export default class CommentContainer extends Component {
         } 
     }
 
-    // submitClear = () => {
-    //     this.setState({
-    //       content: '', 
-    //       editComment: null
-    //     })
-    //   }
 
 
     render() {
