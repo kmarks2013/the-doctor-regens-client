@@ -103,8 +103,8 @@ class App extends React.Component {
     })
   }
 
-  editComment = (commentObj) => {
-    fetch(`http://localhost:3000/comments/${this.state.editComment.id}`, {
+  editComment = (commentObj, commentId) => {
+    fetch(`http://localhost:3000/comments/${commentId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -116,24 +116,13 @@ class App extends React.Component {
     .then(editedComment => {
       const comments = this.state.comments.map( comment => {
         return comment.id === editedComment.id ? editedComment : comment
-      })
-      this.setState({
-        comments,
-        // content: '', 
-        // editComment: null
-      })
+      }) 
+        this.setState({
+          comments
+        })
     })
-    this.submitClear()
   } 
-
-  handleEditSubmit = (event) => {
-    event.preventDefault()
-    let formData = {content: this.state.content}
-    this.editComment(formData)
-    // this.setState({content: '', editComment: null})
-    // console.log(formData, "i am an edited comment")
-  }
-  
+    
   deleteClick = (event, commentObj) => {
     console.log(event.target, commentObj)
     fetch(`http://localhost:3000/comments/${commentObj.id}`, {
@@ -150,7 +139,7 @@ class App extends React.Component {
       <div className="main-cointainer" className="App" >
           <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
-          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} loggedInUserId={this.state.loggedInUserId} makeNewComment={this.makeNewComment} deleteClick={this.deleteClick}/>
+          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} loggedInUserId={this.state.loggedInUserId} editComment={this.editComment} makeNewComment={this.makeNewComment} deleteClick={this.deleteClick}/>
       </div>
     );
   }

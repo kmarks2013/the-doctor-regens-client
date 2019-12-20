@@ -30,20 +30,17 @@ export default class CommentContainer extends Component {
         })
     }
 
+    // FUTURE REFACTOR CONDITONAL SUBMIT LOGIC
     handleEditSubmit = (event) => {
         event.preventDefault()
         let formData = {content: this.state.content}
-        console.log(formData)
-        console.log(this.state.editComment)
-        // this.editComment(formData)
-        // this.setState({content: '', editComment: null})
-        // console.log(formData, "i am an edited comment")
+        this.props.editComment(formData, this.state.editComment.id)
+        this.submitClear()
     }
           
     handleSubmit = (event) => {
         event.preventDefault();
         let formData = {doctor_id:this.props.doctor.id, user_id:this.props.loggedInUserId, content: this.state.content}
-        console.log(formData)
         this.props.makeNewComment(formData)
         this.submitClear()
     }
