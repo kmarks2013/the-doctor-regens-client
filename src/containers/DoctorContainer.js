@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-// import DoctorList from '../components/DoctorList'
+import React from 'react'
 import Doctor from '../components/Doctor'
 import DoctorBio from '../components/DoctorBio'
 import DoctorButtons from '../components/DoctorButtons'
