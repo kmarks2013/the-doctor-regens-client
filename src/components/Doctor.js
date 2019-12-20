@@ -14,14 +14,3 @@ export default class Doctor extends Component {
         )
     }
 }
-
-// export default function Doctor({doctor, nextDoctor, doctorImage}) {
-//     // console.log(doctor)
-//     return (
-//         <div onClick={this.props.nextDoctor}>
-//             {/* <h1>{doctor ?  doctor.name: null}</h1> */}
-//             <h1>{this.props.doctor.name}</h1>
-
-//             <img src={this.} alt="" />
-//         </div>
-//     )
