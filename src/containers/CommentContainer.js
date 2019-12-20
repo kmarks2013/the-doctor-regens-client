@@ -17,7 +17,7 @@ export default class CommentContainer extends Component {
                 {this.showForm()}
                 </div>
                 <div>
-                <CommentList loggedInUserId={this.props.loggedInUserId} editClick={this.props.editClick} comments={this.props.comments} deleteClick={this.props.deleteClick} />
+                <CommentList loggedInUserId={this.props.loggedInUserId} editClick={this.editClick} comments={this.props.comments} deleteClick={this.props.deleteClick} />
                 </div>
             </div>
         )
