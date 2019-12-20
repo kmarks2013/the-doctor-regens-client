@@ -18,7 +18,7 @@ export default class LogIn extends React.Component {
         
     }
     
-    logInSubmitted = (event) => {
+    logInSubmitted = (event) => { 
         event.preventDefault()
         console.log('iwas submitted')
         if (this.state.logIn === true){
@@ -83,6 +83,7 @@ export default class LogIn extends React.Component {
         return (
             < >
             {this.state.errors.length > 0 ? 
+            
             <ul>
                 {this.state.errors.map(error => <li>{error}</li>)}
             </ul> : null
