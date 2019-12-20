@@ -107,31 +107,11 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(newComment => {
-      // console.log(newComment)
       this.setState({
         comments: [...this.state.comments, newComment],
-        // content: '',
-        // editComment: null
       })
     })
-    // this.submitClear() 
-  }
 
-
-  // submitClear = () => {
-  //   this.setState({
-  //     content: '', 
-  //     editComment: null
-  //   })
-  // }
-
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    let formData = {doctor_id:this.state.doctor.id, user_id:this.state.loggedInUserId, content: this.state.content}
-    this.makeNewComment(formData)
-    // this.setState({content: '', editComment: null})
-    // console.log(formData , 'i am a new comment')
   }
 
   editComment = (commentObj) => {
@@ -190,7 +170,7 @@ class App extends React.Component {
       <div className="main-cointainer" className="App" >
           <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
-          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
+          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} makeNewComment={this.makeNewComment} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
       </div>
     );
   }

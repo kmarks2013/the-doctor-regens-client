@@ -32,8 +32,8 @@ export default class CommentContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         let formData = {doctor_id:this.props.doctor.id, user_id:this.props.loggedInUserId, content: this.state.content}
-        // this.props.makeNewComment(formData)
         console.log(formData)
+        this.props.makeNewComment(formData)
         this.submitClear()
     }
         
