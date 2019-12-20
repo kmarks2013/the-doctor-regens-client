@@ -41,7 +41,6 @@ class App extends React.Component {
   }
 
   userFetch = (id) => {
-    console.log(userAPI + id)
     fetch(userAPI + id,{
       headers: {
         "Authorization": this.state.token
@@ -57,7 +56,6 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    console.log("I mounted!")
     this.doctorFetch()
     if (this.state.user) {
       return this.userfetch()
@@ -122,7 +120,7 @@ class App extends React.Component {
         })
     })
   } 
-    
+
   deleteClick = (event, commentObj) => {
     console.log(event.target, commentObj)
     fetch(`http://localhost:3000/comments/${commentObj.id}`, {
