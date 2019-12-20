@@ -8,7 +8,6 @@ export default class CommentList extends Component {
         })
     }
     render() {
-        console.log(this.props.comments)
         return (
             <div className='comments'>
             {this.renderComments()}
