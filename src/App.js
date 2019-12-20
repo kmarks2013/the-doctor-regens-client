@@ -79,22 +79,12 @@ class App extends React.Component {
   }
 
   chooseDoctor= (doctorObj) =>{
-  
     this.setState({
       doctor: doctorObj,
       currentIndex: doctorObj.regenindex - 1, 
       comments: doctorObj.comments
     })
   }
-
-  //THIS IS NOW IN THE COMMMENT CONTAINER
-  // handleFormChange = (event) => {
-  //   console.log(event.target.value)
-  //   this.setState({
-  //     [event.target.name]: event.target.value
-  //   })
-  // }
-
 
   makeNewComment = (commentObj) =>{
     fetch(`http://localhost:3000/comments` ,{
@@ -111,7 +101,6 @@ class App extends React.Component {
         comments: [...this.state.comments, newComment],
       })
     })
-
   }
 
   editComment = (commentObj) => {
@@ -145,15 +134,6 @@ class App extends React.Component {
     // console.log(formData, "i am an edited comment")
   }
   
-  //THIS IS NOW IN THE COMMENT CONTAINER
-  // editClick = (event, commentObj) => {
-  //   this.setState({
-  //     content: commentObj.content,
-  //     editComment: commentObj
-  //   })
-  // }
-
-
   deleteClick = (event, commentObj) => {
     console.log(event.target, commentObj)
     fetch(`http://localhost:3000/comments/${commentObj.id}`, {
@@ -170,10 +150,9 @@ class App extends React.Component {
       <div className="main-cointainer" className="App" >
           <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
-          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} editComment={this.state.editComment} loggedInUserId={this.state.loggedInUserId} content={this.state.content} handleFormChange={this.handleFormChange} handleSubmit={this.handleSubmit} makeNewComment={this.makeNewComment} handleEditSubmit={this.handleEditSubmit} editClick={this.editClick} deleteClick={this.deleteClick}/>
+          <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} loggedInUserId={this.state.loggedInUserId} makeNewComment={this.makeNewComment} deleteClick={this.deleteClick}/>
       </div>
     );
   }
 }
-
 export default App;
