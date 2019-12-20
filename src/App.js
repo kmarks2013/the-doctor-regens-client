@@ -78,7 +78,8 @@ class App extends React.Component {
     })
   }
 
-  chooseDoctor= ( doctorObj) =>{
+  chooseDoctor= (doctorObj) =>{
+  
     this.setState({
       doctor: doctorObj,
       currentIndex: doctorObj.regenindex - 1, 
