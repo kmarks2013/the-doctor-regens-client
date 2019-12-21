@@ -46,6 +46,7 @@ export default class LogIn extends React.Component {
                 }
             })
         } else {
+            console.log(this.state.logIn)
             fetch('http://localhost:3000/users', {
                 method: "POST",
                 headers: {
@@ -97,9 +98,9 @@ export default class LogIn extends React.Component {
             { 
                 this.state.logIn
                 ?    
-                <LogInForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
+                <LogInForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} logInSubmitted={this.logInSubmitted}/>
                 :
-                <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
+                <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} logInSubmitted={this.logInSubmitted} />
             }
 
             </>
