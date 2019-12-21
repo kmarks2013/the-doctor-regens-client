@@ -11,7 +11,7 @@ export default function SignUpForm(props) {
                 <input type='password' onChange={props.onChange} name="password" value={props.password} />
                 <input type="submit" />
             </form>
-            <button  className="log-in-button" onClick={ () => this.setState( {logIn: true })} > Click to Log In </button>
+            <button  className="log-in-button" onClick={ () => props.logInOnOff()} > Click to Log In </button>
         </div>
     )
 }

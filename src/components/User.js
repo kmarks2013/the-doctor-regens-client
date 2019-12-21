@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function User(props) {
+export default function User({user, logout}) {
     return (
         <div>
-            <h4>{props.user.username}</h4>
-            <button onClick={props.logout}>Log Out</button>
+            <h4>{user? user.username : null}</h4>
+            <button onClick={logout}>Log Out</button>
         </div>
     )
 }
