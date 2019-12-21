@@ -11,7 +11,7 @@ export default function LogInForm(props) {
             <input type='password' onChange={props.onChange} name="password" value={props.password} />
             <input type="submit" />
         </form>
-        <button className='sign-up-button' onClick={ () => this.logInOnOff()} > Click to Create an Account</button>
+        <button className='sign-up-button' onClick={ () => props.logInOnOff()} > Click to Create an Account</button>
     </div>
     )
 }

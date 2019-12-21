@@ -57,7 +57,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.doctorFetch()
-    console.log(this.userFetch)
     localStorage.clear()
   }
 

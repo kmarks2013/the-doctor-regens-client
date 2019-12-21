@@ -46,6 +46,7 @@ export default class LogIn extends React.Component {
                 }
             })
         } else {
+            console.log(this.state.logIn)
             fetch('http://localhost:3000/users', {
                 method: "POST",
                 headers: {
