@@ -98,9 +98,9 @@ export default class LogIn extends React.Component {
             { 
                 this.state.logIn
                 ?    
-                <LogInForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
+                <LogInForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} logInSubmitted={this.logInSubmitted}/>
                 :
-                <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
+                <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} logInSubmitted={this.logInSubmitted} />
             }
 
             </>

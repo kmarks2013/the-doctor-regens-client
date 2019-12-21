@@ -4,7 +4,7 @@ export default function LogInForm(props) {
     return (
         <div className='login'>
         <p>Log In </p>
-        <form className='login-form' onSubmit={ props.logInSubmitted } >
+        <form className='login-form' onSubmit={props.logInSubmitted } >
             <label htmlFor='log_in_username'>Username</label>
             <input type='text' onChange={props.onChange} name="username" value={props.username} /> 
             <label htmlFor='log_in_password'>Password</label>
