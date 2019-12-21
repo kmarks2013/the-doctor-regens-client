@@ -57,9 +57,8 @@ class App extends React.Component {
 
   componentDidMount() {
     this.doctorFetch()
-    if (this.state.user) {
-      return this.userfetch()
-    }
+    console.log(this.userFetch)
+    localStorage.clear()
   }
 
   nextDoctor = () => {

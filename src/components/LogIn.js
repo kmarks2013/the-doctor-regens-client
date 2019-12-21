@@ -1,4 +1,5 @@
 import React from 'react'
+import SignUpForm from './SignUpForm'
 // import { useAlert } from "react-alert";÷
 
 export default class LogIn extends React.Component {
@@ -10,7 +11,6 @@ export default class LogIn extends React.Component {
         errors: []
     }   
 
-    
     onChange= event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -69,7 +69,6 @@ export default class LogIn extends React.Component {
                 }
             })
         }
-        
         this.setState({
             username: '',
             password: '',
@@ -77,6 +76,12 @@ export default class LogIn extends React.Component {
         })
     }
     
+    logInOnOff = () => {
+        this.setState({
+            logIn: !this.state.logIn
+        })
+        console.log(this.state.logIn)
+    }
     
     render() {
         // const alert = useAlert()
@@ -89,7 +94,7 @@ export default class LogIn extends React.Component {
             </ul> : null
             }
             { 
-                this.state.logIn 
+                this.state.logIn
                 ?    
                 <div className='login'>
                     <p>Log In </p>
@@ -100,10 +105,10 @@ export default class LogIn extends React.Component {
                         <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
                         <input type="submit" />
                     </form>
-                    <button className='sign-up-button' onClick={ () => this.setState({logIn: false })} > Click to Create an Account</button>
+                    <button className='sign-up-button' onClick={ () => this.logInOnOff()} > Click to Create an Account</button>
                 </div>
                 :
-                <div className='sign-up'>
+                /* <div className='sign-up'>
                     <p>Sign Up </p>
                     <form className='sign-up-form' onSubmit={ this.logInSubmitted } >
                         <label htmlFor='sign_up_username'>Username</label>
@@ -112,8 +117,9 @@ export default class LogIn extends React.Component {
                         <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
                         <input type="submit" />
                     </form>
-                    <button  className="log-in-button" onClick={ () => this.setState( {logIn: true })} > Click to Log In </button>
-                </div>
+                    <button  className="log-in-button" onClick={ () => this.loginOnOff()} > Click to Log In </button>
+                </div> */
+                <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
             }
 
             </>

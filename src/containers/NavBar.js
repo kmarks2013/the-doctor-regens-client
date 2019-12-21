@@ -19,7 +19,7 @@ export default class NavBar extends Component {
                 return <LogIn setToken={this.props.setToken} userFetch={this.props.userFetch} />
             } 
     
-        } 
+        }
         
         render() {
             return (
