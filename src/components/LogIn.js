@@ -1,7 +1,6 @@
 import React from 'react'
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
-import LogInError from './LogInError'
 // import { useAlert } from "react-alert";÷
 
 export default class LogIn extends React.Component {
@@ -87,9 +86,9 @@ export default class LogIn extends React.Component {
     }
     
     renderErrors = () => {
-        this.state.errors.map(error => 
+        this.state.errors.map(error => {
             console.log(error)
-        //    return <LogInError error={error} />
+        }
         )
     } 
     
