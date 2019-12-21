@@ -1,5 +1,6 @@
 import React from 'react'
 import SignUpForm from './SignUpForm'
+import LogInForm from './LogInForm'
 // import { useAlert } from "react-alert";÷
 
 export default class LogIn extends React.Component {
@@ -96,29 +97,8 @@ export default class LogIn extends React.Component {
             { 
                 this.state.logIn
                 ?    
-                <div className='login'>
-                    <p>Log In </p>
-                    <form className='login-form' onSubmit={ this.logInSubmitted } >
-                        <label htmlFor='log_in_username'>Username</label>
-                        <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
-                        <label htmlFor='log_in_password'>Password</label>
-                        <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
-                        <input type="submit" />
-                    </form>
-                    <button className='sign-up-button' onClick={ () => this.logInOnOff()} > Click to Create an Account</button>
-                </div>
+                <LogInForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
                 :
-                /* <div className='sign-up'>
-                    <p>Sign Up </p>
-                    <form className='sign-up-form' onSubmit={ this.logInSubmitted } >
-                        <label htmlFor='sign_up_username'>Username</label>
-                        <input type='text' onChange={this.onChange} name="username" value={this.state.username} /> 
-                        <label htmlFor='sign_up_password'>Password</label>
-                        <input type='password' onChange={this.onChange} name="password" value={this.state.password} />
-                        <input type="submit" />
-                    </form>
-                    <button  className="log-in-button" onClick={ () => this.loginOnOff()} > Click to Log In </button>
-                </div> */
                 <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} />
             }
 
