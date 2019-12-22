@@ -89,8 +89,11 @@ export default class LogIn extends React.Component {
     renderErrors = () => {
         this.state.errors.map(error => {
             console.log(error)
-        }
-        )
+            return alert(error)
+        })
+        this.setState({
+            errors:[]
+        })
     } 
     
 
