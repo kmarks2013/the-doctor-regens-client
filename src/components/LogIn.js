@@ -1,6 +1,7 @@
 import React from 'react'
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
+import Error from './Error'
 // import { useAlert } from "react-alert";÷
 
 export default class LogIn extends React.Component {
