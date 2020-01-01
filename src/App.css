@@ -45,8 +45,8 @@ h4{
 /* SIGN UP FORM CSS */
 
 
- .sign-up{
-border: dashed gold 2px;
+.sign-up{
+ border: dashed gold 2px;
  display: flex;
  width:100vw;
  position: relative;
@@ -69,33 +69,34 @@ border: dashed gold 2px;
 .sign-up-form{
   display:float;
   font-size: 12px;
-  
 }
 
 /* LOGIN FORM CSS */
 
-/* .login{
+.login{
+ border: dashed gold 2px;
  display: flex;
  width:100vw;
- margin-right: 100px;
  position: relative;
 }
 
-.login h4{
+.login p{
+  display: flex;
   margin: 0px;
+  position: relative;
 }
 
 .sign-up-button{
   padding:10px;
   top: 7%;
   right: 25%;
+  border-radius: 10px;
 }
 
 .login-form{
-  padding: 0px;
-  display: float;
-  font-size: 20px;
-} */
+  display:float;
+  font-size: 12px;
+}
 
 
 /* DOCTOR LINKS */
