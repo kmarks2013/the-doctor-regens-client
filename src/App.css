@@ -9,7 +9,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: 70vh;
+  /* height: 70vh; */
   box-sizing: border-box;
 }
 
@@ -27,7 +27,7 @@ h4{
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  
+  height: 20vh;
 }
 
 .title-log{
@@ -45,8 +45,8 @@ h4{
 /* SIGN UP FORM CSS */
 
 
- .sign-up{
-border: dashed gold 2px;
+.sign-up{
+ border: dashed gold 2px;
  display: flex;
  width:100vw;
  position: relative;
@@ -69,33 +69,34 @@ border: dashed gold 2px;
 .sign-up-form{
   display:float;
   font-size: 12px;
-  
 }
 
 /* LOGIN FORM CSS */
 
-/* .login{
+.login{
+ border: dashed gold 2px;
  display: flex;
  width:100vw;
- margin-right: 100px;
  position: relative;
 }
 
-.login h4{
+.login p{
+  display: flex;
   margin: 0px;
+  position: relative;
 }
 
 .sign-up-button{
   padding:10px;
   top: 7%;
   right: 25%;
+  border-radius: 10px;
 }
 
 .login-form{
-  padding: 0px;
-  display: float;
-  font-size: 20px;
-} */
+  display:float;
+  font-size: 12px;
+}
 
 
 /* DOCTOR LINKS */
@@ -169,18 +170,30 @@ border: dashed gold 2px;
 
 
 /* Comment */
+.comment-container{
+  height: 20vh;
+}
 .comments{
-  margin: 5px;
+  width: 75vw;
+  margin: auto;
   border: 1px solid red;
   background: white;
-  color: black
+  color: black;
+  overflow: auto;
+}
+
+.comment{
+  border: 1px rebeccapurple solid;
 }
 
 .comment-content{
   text-align: left;
   font-size: 20px;
+  border: sandybrown 1px solid;
+  margin: 0;
 }
 .comment-user{
+  margin: 0;
   text-align: left;
   font-size: 10px;
 }

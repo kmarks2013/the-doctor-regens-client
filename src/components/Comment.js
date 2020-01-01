@@ -15,7 +15,7 @@ export default class Comment extends Component{
     }
     render() { 
     return (
-        <div>
+        <div className="comment">
             <p className='comment-user'>{this.props.comment.user.username}</p>
             <p className='comment-content'>{this.props.comment.content}</p>
             {this.editDeleteButtons()}
