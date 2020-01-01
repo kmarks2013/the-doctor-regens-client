@@ -14,6 +14,9 @@ code {
     monospace;
 }
 
+footer {
+  border: 1px solid salmon;
+}
 
 /* #main-container {
   height: 100vh;
