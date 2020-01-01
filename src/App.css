@@ -170,18 +170,30 @@ h4{
 
 
 /* Comment */
+.comment-container{
+  height: 20vh;
+}
 .comments{
-  margin: 5px;
+  width: 75vw;
+  margin: auto;
   border: 1px solid red;
   background: white;
-  color: black
+  color: black;
+  overflow: auto;
+}
+
+.comment{
+  border: 1px rebeccapurple solid;
 }
 
 .comment-content{
   text-align: left;
   font-size: 20px;
+  border: sandybrown 1px solid;
+  margin: 0;
 }
 .comment-user{
+  margin: 0;
   text-align: left;
   font-size: 10px;
 }
