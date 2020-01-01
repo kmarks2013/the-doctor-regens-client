@@ -9,7 +9,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: 70vh;
+  /* height: 70vh; */
   box-sizing: border-box;
 }
 
@@ -27,7 +27,7 @@ h4{
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  
+  height: 20vh;
 }
 
 .title-log{
