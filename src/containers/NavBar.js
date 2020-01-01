@@ -3,10 +3,7 @@ import DoctorList from '../components/DoctorList'
 import LogIn from '../components/LogIn'
 import User from '../components/User'
 
-
-
 export default class NavBar extends Component {
-
         logout = () => {
             localStorage.clear()
             this.forceUpdate()
@@ -30,7 +27,6 @@ export default class NavBar extends Component {
                     </div>
                     {this.login()}
                 </div>
-
                 <DoctorList doctors={this.props.doctors} chooseDoctor={this.props.chooseDoctor} />  
             </div>
         )

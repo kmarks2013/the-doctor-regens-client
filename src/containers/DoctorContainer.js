@@ -4,7 +4,6 @@ import DoctorBio from '../components/DoctorBio'
 import DoctorButtons from '../components/DoctorButtons'
 
 export default function DoctorContainer({doctor, nextDoctor}) {    
-
 return (
     <div className='doctor-container'>
         <DoctorButtons />

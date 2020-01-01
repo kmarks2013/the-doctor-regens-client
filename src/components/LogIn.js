@@ -4,8 +4,7 @@ import LogInForm from './LogInForm'
 import Error from './Error'
 // import { useAlert } from "react-alert";÷
 
-export default class LogIn extends React.Component {
-    
+export default class LogIn extends React.Component {   
     state = {
         logIn: false,
         username: '',
@@ -109,7 +108,6 @@ export default class LogIn extends React.Component {
                 :
                 <SignUpForm username={this.state.username} password={this.state.password} onChange={this.onChange} logInOnOff={this.logInOnOff} logInSubmitted={this.logInSubmitted} />
             }
-
             </>
         )
     }
