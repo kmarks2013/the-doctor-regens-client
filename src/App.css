@@ -28,6 +28,7 @@ h4{
   display: flex;
   flex-wrap: wrap;
   height: 20vh;
+  border-bottom: goldenrod 2px ridge;
 }
 
 .title-log{
@@ -46,8 +47,10 @@ h4{
 
 
 .sign-up{
+ /* float: right; */
  border: dashed gold 2px;
  display: flex;
+ flex-wrap: wrap;
  width:100vw;
  position: relative;
 }
@@ -60,13 +63,15 @@ h4{
 
 
 .log-in-button{
+  flex: 0 0 auto;
+  float:left;
   padding:10px;
-  top: 7%;
-  right: 25%;
   border-radius: 10px;
+  margin: 0
 }
 
 .sign-up-form{
+  /* margin-right: 25%; */
   display:float;
   font-size: 12px;
 }

@@ -11,7 +11,7 @@ export default function LogInForm({logInSubmitted, onChange, username, password,
             <input type='password' onChange={onChange} name="password" value={password} />
             <input type="submit" />
         </form>
-        <button className='sign-up-button' onClick={ () => logInOnOff()} > Click to Create an Account</button>
+        <button className='sign-up-button' onClick={ () => logInOnOff()} > SignUp</button>
     </div>
     )
 }
