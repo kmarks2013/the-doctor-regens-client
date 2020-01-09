@@ -1,13 +1,14 @@
 import React from 'react'
 
 export default function DoctorButtons() {
+
     return (
     <div className='pull-to-open'>
-        <img src='./images/pullToOpen.jpg' alt='' />
+        <img onClick={() => alert("We are curretnly updating! Please check back soon for more  content!")} src='./images/pullToOpen.jpg' alt='' />
         <br/>
-        <button> Sonic Devices!</button>
+        <button onClick={() => alert("We are currrently updating Please check back for more  content!")} > Sonic Devices!</button>
         <br/>
-        <button> Companions!</button>
+        <button onClick={() => alert("We are currrently updating Please check back for more  content!")}> Companions!</button>
     </div>
     )
 }
