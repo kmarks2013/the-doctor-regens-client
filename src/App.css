@@ -206,20 +206,20 @@ h4{
 .comments{
   width: 75vw;
   margin: auto;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   background: white;
   color: black;
   overflow: auto;
 }
 
 .comment{
-  /* border: 1px rebeccapurple solid; */
+  border: 1px rebeccapurple solid;
 }
 
 .comment-content{
   text-align: left;
   font-size: 20px;
-  /* border: sandybrown 1px solid; */
+  border: sandybrown 1px solid;
   margin: 0;
 }
 .comment-user{
