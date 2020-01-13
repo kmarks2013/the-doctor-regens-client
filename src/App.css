@@ -34,7 +34,7 @@ h4{
   display: flex;
   flex-wrap: wrap;
   height: 20vh;
-  /* border-bottom: goldenrod 2px ridge; */
+  border-bottom: goldenrod 2px ridge;
 }
 
 .title-log{
@@ -54,38 +54,57 @@ h4{
 
 .sign-up{
  /* float: right; */
- /* border: dashed gold 2px; */
+ border: dashed gold 2px;
  display: flex;
- flex-wrap: wrap;
+ /* flex-wrap: wrap; */
  width:100vw;
  position: relative;
+ padding: 20px 30px 0 30px;
+ /* padding-top: 20px; */
+ justify-content: right;
 }
 
 .sign-up p{
-  display: flex;
-  margin: 0px;
+  /* display: flex;
+  margin: 0px; */
   position: relative;
+  width: 20%;
+    font-size: 25px;
+    margin: 0;
 }
 
 
 .log-in-button{
   flex: 0 0 auto;
   float:left;
-  padding:10px;
+  /* padding:10px;
   border-radius: 10px;
-  margin: 0
+  margin: 0 */
+  width: auto;
+  height: 20px;
+  box-sizing: border-box;
+  /* padding-bottom: 4px; */
+  padding: 2px 3px;
+  margin: 0;
+  padding-bottom: 5px;
+  padding-top: 1px;
+  width: 10%;
+  /* padding-top: 5; */
+  margin-top: 5px;
 }
 
 .sign-up-form{
   /* margin-right: 25%; */
-  display:float;
+  /* display:float; */
   font-size: 12px;
+  width: 70%;
+    padding-top: 5px;
 }
 
 /* LOGIN FORM CSS */
 
 .login{
- /* border: dashed gold 2px; */
+ border: dashed gold 2px;
  display: flex;
  width:100vw;
  position: relative;
