@@ -151,14 +151,14 @@ h4{
 
 /* Doctor Container */
 .doctor-container{
-  /* border: 2px green solid; */
+  border: 2px green solid;
   display: flex;
   flex-direction: row;
   height: 60vh;
 }
 
 .pull-to-open{
-  /* border: 1px  solid orange; */
+  border: 1px  solid orange;
   display: flexbox;
   flex-direction: row;
   width: 20vw
