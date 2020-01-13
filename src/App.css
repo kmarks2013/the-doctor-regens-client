@@ -131,7 +131,7 @@ h4{
 
 /* DOCTOR LINKS */
 .doctors{
-  /* border: rgb(19, 18, 18) 1px dashed; */
+  border: rgb(19, 18, 18) 1px dashed;
   clear: both;
   height:8vh;
   display: flex;
