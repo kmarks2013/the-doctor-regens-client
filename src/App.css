@@ -1,3 +1,9 @@
+*{ 
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
   background-color: #003D6B;
@@ -28,7 +34,7 @@ h4{
   display: flex;
   flex-wrap: wrap;
   height: 20vh;
-  /* border-bottom: goldenrod 2px ridge; */
+  border-bottom: goldenrod 2px ridge;
 }
 
 .title-log{
@@ -48,38 +54,57 @@ h4{
 
 .sign-up{
  /* float: right; */
- /* border: dashed gold 2px; */
+ border: dashed gold 2px;
  display: flex;
- flex-wrap: wrap;
+ /* flex-wrap: wrap; */
  width:100vw;
  position: relative;
+ padding: 20px 30px 0 30px;
+ /* padding-top: 20px; */
+ justify-content: right;
 }
 
 .sign-up p{
-  display: flex;
-  margin: 0px;
+  /* display: flex;
+  margin: 0px; */
   position: relative;
+  width: 20%;
+    font-size: 25px;
+    margin: 0;
 }
 
 
 .log-in-button{
   flex: 0 0 auto;
   float:left;
-  padding:10px;
+  /* padding:10px;
   border-radius: 10px;
-  margin: 0
+  margin: 0 */
+  width: auto;
+  height: 20px;
+  box-sizing: border-box;
+  /* padding-bottom: 4px; */
+  padding: 2px 3px;
+  margin: 0;
+  padding-bottom: 5px;
+  padding-top: 1px;
+  width: 10%;
+  /* padding-top: 5; */
+  margin-top: 5px;
 }
 
 .sign-up-form{
   /* margin-right: 25%; */
-  display:float;
+  /* display:float; */
   font-size: 12px;
+  width: 70%;
+    padding-top: 5px;
 }
 
 /* LOGIN FORM CSS */
 
 .login{
- /* border: dashed gold 2px; */
+ border: dashed gold 2px;
  display: flex;
  width:100vw;
  position: relative;
@@ -106,7 +131,7 @@ h4{
 
 /* DOCTOR LINKS */
 .doctors{
-  /* border: rgb(19, 18, 18) 1px dashed; */
+  border: rgb(19, 18, 18) 1px dashed;
   clear: both;
   height:8vh;
   display: flex;
@@ -126,14 +151,14 @@ h4{
 
 /* Doctor Container */
 .doctor-container{
-  /* border: 2px green solid; */
+  border: 2px green solid;
   display: flex;
   flex-direction: row;
   height: 60vh;
 }
 
 .pull-to-open{
-  /* border: 1px  solid orange; */
+  border: 1px  solid orange;
   display: flexbox;
   flex-direction: row;
   width: 20vw
@@ -149,7 +174,7 @@ h4{
 
 
 .doctor{
-  /* border: 2px solid black; */
+  border: 2px solid black;
   width: 65vw;
   
 }
@@ -164,7 +189,7 @@ h4{
 }
 
 .doctor-bio{
-  /* border: 2px solid greenyellow; */
+  border: 2px solid greenyellow;
   width: 21vw;
   font-size: 1rem;
 }
@@ -181,20 +206,20 @@ h4{
 .comments{
   width: 75vw;
   margin: auto;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   background: white;
   color: black;
   overflow: auto;
 }
 
 .comment{
-  /* border: 1px rebeccapurple solid; */
+  border: 1px rebeccapurple solid;
 }
 
 .comment-content{
   text-align: left;
   font-size: 20px;
-  /* border: sandybrown 1px solid; */
+  border: sandybrown 1px solid;
   margin: 0;
 }
 .comment-user{
