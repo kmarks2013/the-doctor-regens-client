@@ -41,12 +41,24 @@ h4{
   width: 100vw;
   display: flex;
 }
-.title-log>*{
-  flex: 1 1 4px;
+
+.title {
+  display:flex;
+  width: 100vw
 }
 .title h2 {
+  border: 1px solid green;
   margin: 0px;
   text-align: left;
+}
+/* 
+.title img {
+  width:  5%;
+  padding-left: 10;
+} */
+.logo {
+  width: 5%;
+  padding-left: 10px;
 }
 
 /* SIGN UP FORM CSS */
