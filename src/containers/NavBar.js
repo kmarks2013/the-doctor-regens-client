@@ -23,7 +23,7 @@ export default class NavBar extends Component {
                 <div className='nav-bar'>
                 <div className='title-log'>
                     <div className='title'>
-                    <h2> The Doctor Regens</h2>
+                    <h2>The Doctor Regens</h2>
                     </div>
                     {this.login()}
                 </div>
