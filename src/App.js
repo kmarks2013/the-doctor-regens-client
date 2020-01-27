@@ -4,8 +4,10 @@ import CommentContainer from './containers/CommentContainer'
 import NavBar from './containers/NavBar'
 import './App.css';
 
-const doctorAPI = "http://localhost:3000/doctors/"
-const userAPI= "http://localhost:3000/users/"
+const doctorAPI = "https://the-doctor-regens.herokuapp.com/doctors/"
+// const doctorAPI = "http://localhost:3000/doctors/"
+const userAPI= "https://the-doctor-regens.herokuapp.com/users/"
+// const userAPI= "http://localhost:3000/users/"
 
 class App extends React.Component {
   state = {
@@ -100,7 +102,8 @@ class App extends React.Component {
   }
 
   editComment = (commentObj, commentId) => {
-    fetch(`http://localhost:3000/comments/${commentId}`, {
+    // fetch(`http://localhost:3000/comments/${commentId}`, {
+    fetch(`https://the-doctor-regens.herokuapp.com/comments/${commentId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -121,7 +124,7 @@ class App extends React.Component {
 
   deleteClick = (event, commentObj) => {
     console.log(event.target, commentObj)
-    fetch(`http://localhost:3000/comments/${commentObj.id}`, {
+    fetch(`https://the-doctor-regens.herokuapp.com/comments/${commentObj.id}`, {
       method: 'DELETE'
     })
     .then(res => res.json())
