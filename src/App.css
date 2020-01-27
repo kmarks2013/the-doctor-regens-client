@@ -34,7 +34,7 @@ h4{
   display: flex;
   flex-wrap: wrap;
   /* height: 20vh; */
-  border-bottom: goldenrod 2px ridge;
+  /* border-bottom: goldenrod 2px ridge; */
 }
 
 .title-log{
@@ -62,7 +62,7 @@ h4{
 
 .sign-up{
  /* float: right; */
- border: dashed gold 2px;
+ /* border: dashed gold 2px; */
  display: flex;
  /* flex-wrap: wrap; */
  width:100vw;
@@ -112,7 +112,7 @@ h4{
 /* LOGIN FORM CSS */
 
 .login{
- border: dashed gold 2px;
+ /* border: dashed gold 2px; */
  display: flex;
  width:100vw;
  position: relative;
@@ -139,7 +139,7 @@ h4{
 
 /* DOCTOR LINKS */
 .doctors{
-  border: rgb(19, 18, 18) 1px dashed;
+  /* border: rgb(19, 18, 18) 1px dashed; */
   clear: both;
   height:8vh;
   display: flex;
@@ -159,14 +159,14 @@ h4{
 
 /* Doctor Container */
 .doctor-container{
-  border: 2px green solid;
+  /* border: 2px green solid; */
   display: flex;
   flex-direction: row;
   height: 60vh;
 }
 
 .pull-to-open{
-  border: 1px  solid orange;
+  /* border: 1px  solid orange; */
   display: flexbox;
   flex-direction: row;
   width: 20vw
@@ -182,7 +182,7 @@ h4{
 
 
 .doctor{
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 65vw;
   
 }
@@ -197,7 +197,7 @@ h4{
 }
 
 .doctor-bio{
-  border: 2px solid greenyellow;
+  /* border: 2px solid greenyellow; */
   width: 21vw;
   font-size: 1rem;
 }
@@ -221,13 +221,13 @@ h4{
 }
 
 .comment{
-  border: 1px rebeccapurple solid;
+  /* border: 1px rebeccapurple solid; */
 }
 
 .comment-content{
   text-align: left;
   font-size: 20px;
-  border: sandybrown 1px solid;
+  /* border: sandybrown 1px solid; */
   margin: 0;
 }
 .comment-user{
