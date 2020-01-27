@@ -23,7 +23,8 @@ export default class LogIn extends React.Component {
         event.preventDefault()
         console.log('iwas submitted')
         if (this.state.logIn === true){
-            fetch('http://localhost:3000/login', {
+            // fetch('http://localhost:3000/login', {
+            fetch('https://the-doctor-regens.herokuapp.com/login', {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json',
@@ -47,7 +48,8 @@ export default class LogIn extends React.Component {
             })
         } else {
             console.log(this.state.logIn)
-            fetch('http://localhost:3000/users', {
+            // fetch('http://localhost:3000/users', {
+            fetch('https://the-doctor-regens.herokuapp.com/users', {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json',
