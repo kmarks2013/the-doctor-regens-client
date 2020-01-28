@@ -6,7 +6,7 @@ import User from '../components/User'
 export default class NavBar extends Component {
         logout = () => {
             localStorage.clear()
-            this.forceUpdate()
+            this.login
         }
 
         login = () => {
