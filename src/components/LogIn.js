@@ -35,21 +35,21 @@ export default class LogIn extends React.Component {
                     'password': this.state.password
                 })
             })
-            .then(res => console.log(res.json()))
-            // .then(data => {
-            //     if (data.errors) {
-            //         this.setState({
-            //             errors: data.errors
-            //         })
-            //     } else {
-            //         this.props.setToken(data.token, data.user_id)
-            //         this.props.userFetch(data.user_id)
-            //     }
-            // })
+            .then(res => res.json())
+            .then(data => {
+                if (data.errors) {
+                    this.setState({
+                        errors: data.errors
+                    })
+                } else {
+                    this.props.setToken(data.token, data.user_id)
+                    this.props.userFetch(data.user_id)
+                }
+            })
         } else {
             console.log(this.state.logIn)
             // fetch('http://localhost:3000/users', {
-            fetch('https://the-doctor-regens.herokuapp.com/users', {
+            fetch("https://the-doctor-regens.herokuapp.com/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json',
@@ -60,18 +60,18 @@ export default class LogIn extends React.Component {
                     'password': this.state.password
                 })
             })
-            .then(res => console.log(res.json()))
-            // .then(data => {
-            //     console.log(data)
-            //     if (data.errors) {
-            //         this.setState({
-            //             errors: data.errors
-            //         })
-            //     } else {
-            //         this.props.setToken(data.token, data.user_id)
-            //         this.props.userFetch(data.user_id)
-            //     }
-            // })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.errors) {
+                    this.setState({
+                        errors: data.errors
+                    })
+                } else {
+                    this.props.setToken(data.token, data.user_id)
+                    this.props.userFetch(data.user_id)
+                }
+            })
         }
         this.setState({
             username: '',
