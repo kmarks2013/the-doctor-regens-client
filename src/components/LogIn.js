@@ -49,7 +49,7 @@ export default class LogIn extends React.Component {
         } else {
             console.log(this.state.logIn)
             // fetch('http://localhost:3000/users', {
-            fetch('https://the-doctor-regens.herokuapp.com/users', {
+            fetch("https://the-doctor-regens.herokuapp.com/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json',
