@@ -144,7 +144,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="main-cointainer" className="App" >
-          <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} />
+          <NavBar doctors={this.state.doctors} setToken={this.setToken} chooseDoctor={this.chooseDoctor} userFetch={this.userFetch} user={this.state.user} loggedInUserId={this.state.loggedInUserId} logout={this.logout} />
           <DoctorContainer doctor={this.state.doctor} nextDoctor={this.nextDoctor}  />
           <CommentContainer comments={this.state.comments} user={this.state.user} doctor={this.state.doctor} loggedInUserId={this.state.loggedInUserId} editComment={this.editComment} makeNewComment={this.makeNewComment} deleteClick={this.deleteClick}/>
       </div>
