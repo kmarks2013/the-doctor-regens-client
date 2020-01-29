@@ -4,10 +4,9 @@ import LogIn from '../components/LogIn'
 import User from '../components/User'
 
 export default class NavBar extends Component {
-
         login = () => {
             if (this.props.user){
-               return <User user={this.props.user} logout={this.logout}/>
+               return <User user={this.props.user} logout={this.props.logout}/>
             } else {
                 return <LogIn setToken={this.props.setToken} userFetch={this.props.userFetch} />
             } 
