@@ -56,6 +56,14 @@ class App extends React.Component {
     })
   }
 
+  logout = () => {
+    localStorage.clear()
+    this.setState({
+      user: null
+    })
+    // this.forceUpdate()
+  }
+
 
   componentDidMount() {
     this.doctorFetch()
