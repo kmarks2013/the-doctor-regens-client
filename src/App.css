@@ -132,8 +132,11 @@ h4{
 }
 
 .login-form{
-  display:float;
   font-size: 12px;
+  width: 70%;
+    padding-top: 5px;
+  /* display:float;
+  font-size: 12px; */
 }
 
 
