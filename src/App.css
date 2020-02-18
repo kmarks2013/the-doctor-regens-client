@@ -113,9 +113,14 @@ h4{
 
 .login{
  /* border: dashed gold 2px; */
- display: flex;
+ /* display: flex;
  width:100vw;
- position: relative;
+ position: relative; */
+ display: flex;
+    width: 100vw;
+    position: relative;
+    padding: 20px 30px 0;
+    justify-content: right;
 }
 
 .login p{
@@ -132,8 +137,11 @@ h4{
 }
 
 .login-form{
-  display:float;
   font-size: 12px;
+  width: 70%;
+    padding-top: 5px;
+  /* display:float;
+  font-size: 12px; */
 }
 
 
