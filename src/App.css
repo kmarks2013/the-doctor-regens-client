@@ -130,10 +130,18 @@ h4{
 }
 
 .sign-up-button{
-  padding:10px;
+  flex: 0 0 auto;
+    float: left;
+    width: auto;
+    height: 20px;
+    box-sizing: border-box;
+    padding: 1px 3px 5px;
+    width: 10%;
+    margin: 5px 0 0;
+  /* padding:10px;
   top: 7%;
   right: 25%;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 .login-form{
